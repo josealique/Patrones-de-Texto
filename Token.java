@@ -1,17 +1,30 @@
 public class Token {
-    private char caracter;
+    enum TipoToken { NUMERO, META, CARACTER }
 
-    private Token(){}
+    public Token() {}
 
-    public Token(char caracter) {
-        this.caracter = caracter;
+    TipoToken tipo;
+    char tk;
+    int value;
+
+    static Token tokMeta(char c){
+        Token metaCaracter = new Token();
+        metaCaracter.tipo = TipoToken.META;
+        metaCaracter.tk = c;
+        return metaCaracter;
     }
 
-    static Token caracter(char c){
-        Token token = new Token();
-        token.caracter = c;
-        return token;
+    static Token tokCaracter(char c){
+        Token caracter = new Token();
+        caracter.tipo = TipoToken.CARACTER;
+        caracter.tk = c;
+        return caracter;
     }
 
-
+    static Token tokNumero(int valor){
+        Token num = new Token();
+        num.tipo = TipoToken.NUMERO;
+        num.value = valor;
+        return num;
+    }
 }

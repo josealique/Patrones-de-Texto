@@ -1,16 +1,14 @@
-import java.util.List;
+import java.util.*;
 
 public class Find {
     String texto;
+    Token token;
 
     public Find(String s) {
         this.texto = s;
     }
 
     public boolean match(String stringPat) {
-        if (texto.contains(stringPat)){
-            return true;
-        }
-        return false;
+        return true;
     }
 }
